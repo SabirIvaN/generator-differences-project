@@ -21,9 +21,7 @@
       "bin/gendiff"
     ],
     "autoloads": {
-      "files": [
-        "src/runner.php"
-      ]
+      "files": []
     },
     "scripts": {
       "phpcs": "phpcs"
