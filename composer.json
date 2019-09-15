@@ -1,0 +1,37 @@
+{
+    "name": "sabirivan/php-project-lvl2",
+    "description": "Generator of differences in config files",
+    "keywords": [
+      "hexlet",
+      "php",
+      "project",
+      "level2",
+      "gendiff"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Иван Сабиров",
+            "email": "sabirivan@yandex.com"
+        }
+    ],
+    "bin": [
+      "bin/gendiff"
+    ],
+    "autoloads": {
+      "files": [
+        "src/runner.php"
+      ]
+    },
+    "scripts": {
+      "phpcs": "phpcs"
+    },
+    "require": {
+      "docopt/docopt": "^1.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
+}
