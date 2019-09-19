@@ -17,15 +17,12 @@
             "email": "sabirivan@yandex.com"
         }
     ],
-    "bin": [
-      "bin/gendiff"
-    ],
-    "autoloads": {
-      "files": []
-    },
     "scripts": {
       "phpcs": "phpcs"
     },
+    "bin": [
+      "bin/gendiff"
+    ],
     "require": {
       "docopt/docopt": "^1.0"
     },
