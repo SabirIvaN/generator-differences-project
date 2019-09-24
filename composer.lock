@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "999f1eb658dc563ea845e73ceb4ec66f",
+    "content-hash": "550093e156f5aea2dbe2a1286bf2cafa",
     "packages": [
         {
             "name": "docopt/docopt",
@@ -60,12 +60,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "c436252a6edc2cd3c9ce3a846ae3ba0f52d30815"
+                "reference": "cf655b41de258b53d647d85cd85675b9bd2fd7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c436252a6edc2cd3c9ce3a846ae3ba0f52d30815",
-                "reference": "c436252a6edc2cd3c9ce3a846ae3ba0f52d30815",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/cf655b41de258b53d647d85cd85675b9bd2fd7f8",
+                "reference": "cf655b41de258b53d647d85cd85675b9bd2fd7f8",
                 "shasum": ""
             },
             "require": {
@@ -103,7 +103,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-09-09T03:00:53+00:00"
+            "time": "2019-09-22T23:18:48+00:00"
         }
     ],
     "aliases": [],
