@@ -22,7 +22,7 @@ function run()
 
     $args = Docopt::handle($doc, ["version" => "GenDiff 0.0.5"]);
 
-    foreach ($args as $k=>$v) {
+    foreach ($args as $k => $v) {
         echo $k . ": " . json_encode($v) . PHP_EOL;
     }
 }
