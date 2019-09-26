@@ -12,16 +12,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-$doc = <<<DOC
-    Generate diff
-
-    Usage:
-    gendiff (-h|--help)
-    gendiff (-v|--version)
-
-    Options:
-    -h --help                     Show this screen
-    -v --version                  Show version
-DOC;
-
-Docopt::handle($doc, array('version'=>'Generator Differences 0.1'));
+run();

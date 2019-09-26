@@ -20,6 +20,9 @@
     "scripts": {
       "phpcs": "phpcs"
     },
+    "autoload": {
+      "files": ["src/runner.php"]
+    },
     "bin": [
       "bin/gendiff"
     ],
