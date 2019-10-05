@@ -37,15 +37,15 @@ function getContent($pathToFile)
     return $fileContent;
 }
 
+function getDataType($pathToFile)
+{
+    return pathinfo($pathToFile, PATHINFO_EXTENSION);
+}
+
 function parseContent($content, $dataType)
 {
     switch ($dataType) {
         case "json":
             return json_decode($content, true);
     }
-}
-
-function getDataType($pathToFile)
-{
-    return pathinfo($pathToFile, PATHINFO_EXTENSION);
 }
