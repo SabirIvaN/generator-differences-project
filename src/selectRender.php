@@ -4,7 +4,7 @@ namespace GenDiff\SelectRender;
 
 function selectRender($ast, $format)
 {
-  $renderPath = "\Differ\Renderers\\$format\\Render";
-
-  return $renderPath($ast);
+    $renderPath = "\GenDiff\Renderers\\$format\\render";
+    
+    return $renderPath($ast);
 }

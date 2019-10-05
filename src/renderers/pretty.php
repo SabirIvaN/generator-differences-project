@@ -1,14 +1,46 @@
 <?php
 
-namespace GenDiff\Renderers\Pretty;
+namespace GenDiff\Renderers\pretty;
 
-function stringify($value)
+function render($ast, $depth = 0)
 {
-    if (is_bool($value)) {
-        return $value ? "true" : "false";
-    } else {
-        return $value;
-    }
+    $tabs = str_repeat("    ", $depth);
+    $composeText = array_reduce($ast, function ($acc, $item) use ($tabs, $depth) {
+        $key = $item["key"];
+
+        switch ($item["type"]) {
+            case "nested":
+                $after = render($item["after"], $depth + 1);
+                $acc[] = "$tabs    $key: $after";
+
+                return $acc;
+            case "unchanged":
+                $after = renderValue($item["after"], $depth);
+                $acc[] = "$tabs    $key: $after";
+
+                return $acc;
+            case "changed":
+                $before = renderValue($item["before"], $depth);
+                $after = renderValue($item["after"], $depth);
+
+                $acc[] = "$tabs  + $key: $after";
+                $acc[] = "$tabs  - $key: $before";
+
+                return $acc;
+            case "added":
+                $after = renderValue($item["after"], $depth);
+                $acc[] = "$tabs  + $key: $after";
+
+                return $acc;
+            case "removed":
+                $before = renderValue($item["before"], $depth);
+                $acc[] = "$tabs  - $key: $before";
+
+                return $acc;
+        }
+    }, ["{"]);
+
+    return implode($composeText, "\n") . "\n$tabs}";
 }
 
 function renderValue($value, $depth)
@@ -19,7 +51,7 @@ function renderValue($value, $depth)
 
     $tabs = "\n" . str_repeat("    ", $depth + 1);
     $array = $value;
-    $composeText = array_reduce(array_keys($array), function($acc, $key) use ($array, $tabs, $depth) {
+    $composeText = array_reduce(array_keys($array), function ($acc, $key) use ($array, $tabs, $depth) {
         if (is_array($array[$key])) {
             $acc[] = renderValue($array[$key], $depth + 1);
 
@@ -34,42 +66,11 @@ function renderValue($value, $depth)
     return "{" . implode($composeText, "\n") . "$tabs}";
 }
 
-function render($ast, $depth = 0)
+function stringify($value)
 {
-    $tabs = str_repeat("    ", $depth);
-    $composeText = array_reduce($ast, function ($acc, $item) use ($tabs, $depth) {
-        $key = $item["key"];
-
-        switch ($item["type"]) {
-          case "nested":
-              $after = render($item["after"], $depth + 1);
-              $acc[] = "$tabs    $key: $after";
-
-              return $acc;
-          case "unchanged":
-              $after = renderValue($item["after"], $depth);
-              $acc[] = "$tabs    $key: $after";
-
-              return $acc;
-          case "changed":
-              $before = renderValue($item["before"], $depth);
-              $after = renderValue($item["after"], $depth);
-              $acc[] = "$tabs  + $key: $after";
-              $acc[] = "$tabs  - $key: $before";
-
-              return $acc;
-          case "added":
-              $after = renderValue($item["after"], $depth);
-              $acc[] = "$tabs  + $key: $after";
-
-              return $acc;
-          case "removed":
-              $after = renderValue($item["before"], $depth);
-              $acc[] = "$tabs  - $key: $before";
-
-              return $acc;
-        }
-    }, ["{"]);
-
-    return impolde($composeText, "\n") . "\n$tabs}";
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    } else {
+        return $value;
+    }
 }

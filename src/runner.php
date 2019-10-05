@@ -4,7 +4,7 @@ namespace GenDiff\Runner;
 
 use Docopt;
 
-use function Differ\Gendiff\gendiff;
+use function GenDiff\Gendiff\gendiff;
 
 function run()
 {
@@ -12,23 +12,19 @@ function run()
         Generate diff
 
         Usage:
-        gendiff (-h|--help)
-        gendiff (-v|--version)
-        gendiff [--format <fmt>] <firstFile> <secondFile>
+          gendiff (-h|--help)
+          gendiff [--format <fmt>] <firstFile> <secondFile>
 
         Options:
-        -h --help                     Show this screen
-        -v --version                  Show version
-        --format <fmt>                Report format [default: pretty]
-    DOC;
+          -h --help         Show this screen.
+          --format <fmt>    Report format [default: pretty].
+          -v --version      Show version.
+     DOC;
 
     $args = Docopt::handle($doc, ["version" => "GenDiff 0.0.5"]);
-
     $pathToFile1 = realpath($args["<firstFile>"]);
     $pathToFile2 = realpath($args["<secondFile>"]);
     $format = $args["--format"];
 
-    foreach ($args as $k => $v) {
-        echo $k . ": " . json_encode($v) . PHP_EOL;
-    }
+    echo gendiff($pathToFile1, $pathToFile2, $format) . PHP_EOL;
 }
