@@ -4,9 +4,9 @@ namespace GenDiff\Runner;
 
 use Docopt;
 
-use function GenDiff\Gendiff\gendiff;
+use function GenDiff\Generator\generator;
 
-function run()
+function runner()
 {
     $doc = <<<DOC
         Generate diff
@@ -17,7 +17,7 @@ function run()
 
         Options:
           -h --help         Show this screen.
-          --format <fmt>    Report format [default: pretty].
+          --format <fmt>    Report format [default: render].
           -v --version      Show version.
      DOC;
 
@@ -26,5 +26,5 @@ function run()
     $pathToFile2 = realpath($args["<secondFile>"]);
     $format = $args["--format"];
 
-    echo gendiff($pathToFile1, $pathToFile2, $format) . PHP_EOL;
+    echo generator($pathToFile1, $pathToFile2, $format) . PHP_EOL;
 }

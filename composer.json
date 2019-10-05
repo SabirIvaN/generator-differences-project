@@ -27,10 +27,10 @@
     "autoload": {
       "files": [
         "src/runner.php",
-        "src/gendiff.php",
-        "src/makeDiffAst.php",
-        "src/selectRender.php",
-        "src/renderers/pretty.php"
+        "src/generator.php",
+        "src/identifier.php",
+        "src/selecter.php",
+        "src/renderers/render.php"
       ]
     },
     "bin": [

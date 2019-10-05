@@ -1,12 +1,12 @@
 <?php
 
-namespace GenDiff\Gendiff;
+namespace GenDiff\Generator;
 
-use function GenDiff\MakeDiffAst\makeDiffAst;
-use function GenDiff\Renderers\pretty\render;
-use function GenDiff\SelectRender\selectRender;
+use function GenDiff\Identifier\identifier;
+use function GenDiff\Renderers\Render\render;
+use function GenDiff\Selecter\selecter;
 
-function gendiff($pathToFile1, $pathToFile2, $format)
+function generator($pathToFile1, $pathToFile2, $format)
 {
     $file1Content = getContent($pathToFile1);
     $file2Content = getContent($pathToFile2);
@@ -21,9 +21,9 @@ function gendiff($pathToFile1, $pathToFile2, $format)
         throw new \Exception("Wrong file format!");
     }
 
-    $ast = makeDiffAst($content1, $content2);
+    $ast = identifier($content1, $content2);
 
-    return selectRender($ast, $format);
+    return selecter($ast, $format);
 }
 
 function getContent($pathToFile)
