@@ -21,13 +21,20 @@
       "phpcs": "phpcs"
     },
     "autoload": {
-      "files": ["src/runner.php"]
+      "files": [
+        "src/runner.php",
+        "src/renderer.php",
+        "src/parser.php",
+        "src/generator.php",
+        "src/formatters/pretty.php"
+      ]
     },
     "bin": [
       "bin/gendiff"
     ],
     "require": {
-      "docopt/docopt": "^1.0"
+      "docopt/docopt": "^1.0",
+      "funct/funct": "^1.5"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*"

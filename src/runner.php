@@ -4,6 +4,8 @@ namespace GenDiff\Runner;
 
 use Docopt;
 
+use function GenDiff\Generator\generate;
+
 function run()
 {
     $doc = <<<DOC
@@ -19,10 +21,15 @@ function run()
         -v --version                  Show version
         --format <fmt>                Report format [default: pretty]
     DOC;
-
+    
     $args = Docopt::handle($doc, ["version" => "GenDiff 0.0.5"]);
 
-    foreach ($args as $k => $v) {
-        echo $k . ": " . json_encode($v) . PHP_EOL;
+    try {
+        $diff = generate($args["<firstFile>"], $args["<secondFile>"], $args["--format"]);
+    } catch (\Exception $e) {
+        echo $e->getMessage() . PHP_EOL;
+        exit(1);
     }
+
+    echo $diff;
 }
