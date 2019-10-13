@@ -20,5 +20,6 @@ Render formats:
 
 ## Example of usage
 
-- Pretty format:  
+- Pretty format:
+
 [![asciicast](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS.svg)](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS)
