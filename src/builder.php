@@ -21,12 +21,19 @@ function getData($key, $data1, $data2)
         $result = getDeleted($key, $data1, $data2);
     } elseif (is_array($data1[$key]) && is_array($data2[$key])) {
         $result = getParent($key, $data1, $data2);
-    } elseif ($data1[$key] === $data2[$key]) {
+    } else {
+      $result = getChanges($key, $data1, $data2);
+    }
+    return $result;
+}
+
+function getChanges($key, $data1, $data2)
+{
+    if ($data1[$key] === $data2[$key]) {
         $result = getNotChanged($key, $data1, $data2);
     } elseif ($data1[$key] !== $data2[$key]) {
         $result = getChanged($key, $data1, $data2);
     }
-    return $result;
 }
 
 function getAdded($key, $data1, $data2)
