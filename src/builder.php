@@ -16,15 +16,26 @@ function build($data1, $data2)
 function getData($key, $data1, $data2)
 {
     if (!array_key_exists($key, $data1)) {
-        $result = ['type' => 'added', 'key' => $key, 'value' => $data2[$key]];
+        $result['type'] = 'added';
+        $result['key'] = $key;
+        $result['value'] = $data2[$key];
     } elseif (!array_key_exists($key, $data2)) {
-        $result = ['type' => 'deleted', 'key' => $key, 'value' => $data1[$key]];
+        $result['type'] = 'deleted';
+        $result['key'] = $key;
+        $result['value'] = $data1[$key];
     } elseif (is_array($data1[$key]) && is_array($data2[$key])) {
-        $result = ['type' => 'parent', 'key' => $key, 'children' => generateAst($data1[$key], $data2[$key])];
+        $result['type'] = 'parent';
+        $result['key'] = $key;
+        $result['children'] = build($data2[$key]);
     } elseif ($data1[$key] === $data2[$key]) {
-        $result = ['type' => 'not changed', 'key' => $key, 'value' => $data1[$key]];
+        $result['type'] = 'not changed';
+        $result['key'] = $key;
+        $result['value'] = $data1[$key];
     } elseif ($data1[$key] !== $data2[$key]) {
-        $result = ['type' => 'changed', 'key' => $key, 'oldValue' => $data1[$key], 'newValue' => $data2[$key]];
+        $result['type'] = 'changed';
+        $result['key'] = $key;
+        $result['oldValue'] = $data1[$key];
+        $result['newValue'] = $data2[$key];
     }
     return $result;
 }
