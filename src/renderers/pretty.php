@@ -12,23 +12,23 @@ function renderPretty($ast, $level = 0)
 {
     $indent = str_repeat('    ', $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
-        if ($node['type'] === 'not changed') {
-            $value = getValue($node['value'], $level);
-            $acc[] = "{$indent}    {$node['key']}: {$value}";
-        } elseif ($node['type'] === 'added') {
-            $value = getValue($node['value'], $level);
-            $acc[] = "{$indent}  + {$node['key']}: {$value}";
-        } elseif ($node['type'] === 'deleted') {
-            $value = getValue($node['value'], $level);
-            $acc[] = "{$indent}  - {$node['key']}: {$value}";
-        } elseif ($node['type'] === 'changed') {
-            $oldValue = getValue($node['oldValue'], $level);
-            $newValue = getValue($node['newValue'], $level);
-            $acc[] = "{$indent}  - {$node['key']}: {$oldValue}";
-            $acc[] = "{$indent}  + {$node['key']}: {$newValue}";
-        } elseif ($node['type'] === 'parent') {
-            $children = renderPretty($node['children'], $level + 1);
-            $acc[] = "{$indent}    {$node['key']}: {\n{$children}\n    {$indent}}";
+        if ($node["type"] === "not changed") {
+            $value = getValue($node["value"], $level);
+            $acc[] = "{$indent}    {$node["key"]}: {$value}";
+        } elseif ($node["type"] === "added") {
+            $value = getValue($node["value"], $level);
+            $acc[] = "{$indent}  + {$node["key"]}: {$value}";
+        } elseif ($node["type"] === "deleted") {
+            $value = getValue($node["value"], $level);
+            $acc[] = "{$indent}  - {$node["key"]}: {$value}";
+        } elseif ($node["type"] === "changed") {
+            $oldValue = getValue($node["oldValue"], $level);
+            $newValue = getValue($node["newValue"], $level);
+            $acc[] = "{$indent}  - {$node["key"]}: {$oldValue}";
+            $acc[] = "{$indent}  + {$node["key"]}: {$newValue}";
+        } elseif ($node["type"] === "parent") {
+            $children = renderPretty($node["children"], $level + 1);
+            $acc[] = "{$indent}    {$node["key"]}: {\n{$children}\n    {$indent}}";
         }
         return $acc;
     });
@@ -47,7 +47,7 @@ function getValue($data, $level)
 
 function arrayToValue($data, $level)
 {
-    $indent = str_repeat('    ', $level + 1);
+    $indent = str_repeat("    ", $level + 1);
     $keys = array_keys($data);
     $values = array_reduce($keys, function ($acc, $value) use ($indent, $data) {
         $acc[] = "{$indent}  {$value}: {$data[$value]}";

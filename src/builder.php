@@ -39,25 +39,25 @@ function getChanges($key, $data1, $data2)
 
 function getAdded($key, $data1, $data2)
 {
-    return ['type' => 'added', 'key' => $key, 'value' => $data2[$key]];
+    return ["type" => "added", "key" => $key, "value" => $data2[$key]];
 }
 
 function getDeleted($key, $data1, $data2)
 {
-    return ['type' => 'deleted', 'key' => $key, 'value' => $data1[$key]];
+    return ["type" => "deleted", "key" => $key, "value" => $data1[$key]];
 }
 
 function getParent($key, $data1, $data2)
 {
-    return ['type' => 'parent', 'key' => $key, 'children' => build($data1[$key], $data2[$key])];
+    return ["type" => "parent", "key" => $key, "children" => build($data1[$key], $data2[$key])];
 }
 
 function getNotChanged($key, $data1, $data2)
 {
-    return ['type' => 'not changed', 'key' => $key, 'value' => $data1[$key]];
+    return ["type" => "not changed", "key" => $key, "value" => $data1[$key]];
 }
 
 function getChanged($key, $data1, $data2)
 {
-    return ['type' => 'changed', 'key' => $key, 'oldValue' => $data1[$key], 'newValue' => $data2[$key]];
+    return ["type" => "changed", "key" => $key, "oldValue" => $data1[$key], "newValue" => $data2[$key]];
 }
