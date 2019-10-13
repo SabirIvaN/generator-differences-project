@@ -22,7 +22,7 @@ function getData($key, $data1, $data2)
     } elseif (is_array($data1[$key]) && is_array($data2[$key])) {
         $result = getParent($key, $data1, $data2);
     } else {
-      $result = getChanges($key, $data1, $data2);
+        $result = getChanges($key, $data1, $data2);
     }
     return $result;
 }
