@@ -2,9 +2,9 @@
 
 namespace GenDiff\Runner;
 
-use function GenDiff\Parsers\parse;
+use function GenDiff\Parser\parse;
 use function GenDiff\Builder\build;
-use function GenDiff\Formatters\Pretty\render;
+use function GenDiff\Renderers\Pretty\render;
 
 function run($pathToFile1, $pathToFile2, $format)
 {
