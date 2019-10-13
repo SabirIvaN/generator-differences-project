@@ -2,27 +2,47 @@
 
 namespace GenDiff\Runner;
 
-use Docopt;
+use function GenDiff\Parsers\parse;
+use function GenDiff\Builder\build;
+use function GenDiff\Formatters\Pretty\render;
 
-function run()
+function run($pathToFile1, $pathToFile2, $format)
 {
-    $doc = <<<DOC
-        Generate diff
+    checkPath($pathToFile1);
+    checkPath($pathToFile2);
+    $data1 = getData($pathToFile1);
+    $data2 = getData($pathToFile2);
+    $ast = build($data1, $data2);
+    $renderedAst = chooseRender($ast, $format);
+    return $renderedAst;
+}
 
-        Usage:
-        gendiff (-h|--help)
-        gendiff (-v|--version)
-        gendiff [--format <fmt>] <firstFile> <secondFile>
+function getData($pathToFile)
+{
+    $data = file_get_contents($pathToFile);
+    if (!$data) {
+        throw new \Exception("Can't get a content from {$pathToFile}");
+    }
+    $dataType = pathinfo($pathToFile, PATHINFO_EXTENSION);
+    return parse($data, $dataType);
+}
 
-        Options:
-        -h --help                     Show this screen
-        -v --version                  Show version
-        --format <fmt>                Report format [default: pretty]
-    DOC;
+function chooseRender($ast, $format)
+{
+    $renders = [
+        "pretty" => function ($ast) {
+            return render($ast);
+        }
+    ];
+    return $renders[$format]($ast);
+}
 
-    $args = Docopt::handle($doc, ["version" => "GenDiff 0.0.5"]);
-
-    foreach ($args as $k => $v) {
-        echo $k . ": " . json_encode($v) . PHP_EOL;
+function checkPath($pathToFile)
+{
+    if (!is_file($pathToFile)) {
+        throw new \Exception("{$pathToFile} is not a file");
+    }
+    if (!is_readable($pathToFile)) {
+        throw new \Exception("{$pathToFile} is not readable");
     }
 }

@@ -3,13 +3,23 @@
 
 use function GenDiff\Runner\run;
 
-$autoloadPath1 = __DIR__ . "/../../../autoload.php";
-$autoloadPath2 = __DIR__ . "/../vendor/autoload.php";
+const DOC = <<<DOC
+Generate Diff.
+Usage:
+    gendiff (-h|--help)
+    gendiff (-v|--version)
+    gendiff [--format <fmt>] <firstFile> <secondFile>
+Options:
+  -h --help         Show this screen.
+  -v --version      Show version.
+  --format <fmt>    Report format [default: pretty].
+DOC;
 
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
+try {
+    $args = \Docopt::handle(DOC, array('version' => '1.0'));
+    $diff = run($args['<firstFile>'], $args['<secondFile>'], $args['--format']);
+    print_r($diff);
+} catch (\Exception $e) {
+    echo $e->getMessage();
 }
-
-run();
+echo "\n";
