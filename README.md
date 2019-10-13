@@ -5,12 +5,12 @@
 
 PHP-package to find difference between two files.
 
-##Installation
+## Installation
 
 With Composer:
 `composer global require sabirivan/gendiff:dev-master`
 
-##Input and output data
+## Input and output data
 
 Available data types:
 - json
@@ -18,7 +18,7 @@ Available data types:
 Render formats:
 - pretty
 
-##example of usage
+## Example of usage
 
 - Pretty format:
 [![asciicast](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS.svg)](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS)
