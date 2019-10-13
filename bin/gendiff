@@ -13,21 +13,21 @@ if (file_exists($autoloadPath1)) {
 }
 
 const DOC = <<<DOC
-		Generate Diff.
+Generate diff
 
-		Usage:
-				gendiff (-h|--help)
-				gendiff (-v|--version)
-				gendiff [--format <fmt>] <firstFile> <secondFile>
+Usage:
+	gendiff (-h|--help)
+	gendiff (-v|--version)
+	gendiff [--format <fmt>] <firstFile> <secondFile>
 
-		Options:
-				-h --help         Show this screen.
-				-v --version      Show version.
-				--format <fmt>    Report format [default: pretty].
+Options:
+	-h --help         Show this screen.
+	-v --version      Show version.
+	--format <fmt>    Report format [default: pretty].
 DOC;
 
 try {
-		$args = \Docopt::handle(DOC, array("version" => "0.5.0"));
+		$args = \Docopt::handle(DOC, array("version" => "GenDiff 0.5.0"));
 		$diff = run($args["<firstFile>"], $args["<secondFile>"], $args["--format"]);
 		print_r($diff);
 } catch (\Exception $e) {
