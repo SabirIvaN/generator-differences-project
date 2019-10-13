@@ -12,12 +12,14 @@ function renderPretty($ast, $level = 0)
 {
     $indent = str_repeat('    ', $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
-        $value = getValue($node['value'], $level);
         if ($node['type'] === 'not changed') {
+            $value = getValue($node['value'], $level);
             $acc[] = "{$indent}    {$node['key']}: {$value}";
         } elseif ($node['type'] === 'added') {
+            $value = getValue($node['value'], $level);
             $acc[] = "{$indent}  + {$node['key']}: {$value}";
         } elseif ($node['type'] === 'deleted') {
+            $value = getValue($node['value'], $level);
             $acc[] = "{$indent}  - {$node['key']}: {$value}";
         } elseif ($node['type'] === 'changed') {
             $oldValue = getValue($node['oldValue'], $level);

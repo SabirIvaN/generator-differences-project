@@ -34,6 +34,7 @@ function getChanges($key, $data1, $data2)
     } elseif ($data1[$key] !== $data2[$key]) {
         $result = getChanged($key, $data1, $data2);
     }
+    return $result;
 }
 
 function getAdded($key, $data1, $data2)
