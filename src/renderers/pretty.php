@@ -1,4 +1,5 @@
 <?php
+
 namespace GenDiff\Renderers\Pretty;
 
 function render($ast)
@@ -17,15 +18,15 @@ function renderPretty($ast, $level = 0)
         } elseif ($node['type'] === 'added') {
             $acc[] = "{$indent}  + {$node['key']}: {$value}";
         } elseif ($node['type'] === 'deleted') {
-          $acc[] = "{$indent}  - {$node['key']}: {$value}";
+            $acc[] = "{$indent}  - {$node['key']}: {$value}";
         } elseif ($node['type'] === 'changed') {
-          $oldValue = getValue($node['oldValue'], $level);
-          $newValue = getValue($node['newValue'], $level);
-          $acc[] = "{$indent}  - {$node['key']}: {$oldValue}";
-          $acc[] = "{$indent}  + {$node['key']}: {$newValue}";
+            $oldValue = getValue($node['oldValue'], $level);
+            $newValue = getValue($node['newValue'], $level);
+            $acc[] = "{$indent}  - {$node['key']}: {$oldValue}";
+            $acc[] = "{$indent}  + {$node['key']}: {$newValue}";
         } elseif ($node['type'] === 'parent') {
-          $children = renderPretty($node['children'], $level + 1);
-          $acc[] = "{$indent}    {$node['key']}: {\n{$children}\n    {$indent}}";
+            $children = renderPretty($node['children'], $level + 1);
+            $acc[] = "{$indent}    {$node['key']}: {\n{$children}\n    {$indent}}";
         }
         return $acc;
     });
