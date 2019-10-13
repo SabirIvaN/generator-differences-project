@@ -12,30 +12,25 @@ function renderPretty($ast, $level = 0)
     $indent = str_repeat('    ', $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
         $value = getValue($node['value'], $level);
-        switch ($node['type']) {
-            case 'not changed':
-                $acc[] = "{$indent}    {$node['key']}: {$value}";
-                break;
-            case 'added':
-                $acc[] = "{$indent}  + {$node['key']}: {$value}";
-                break;
-            case 'deleted':
-                $acc[] = "{$indent}  - {$node['key']}: {$value}";
-                break;
-            case 'changed':
-                $oldValue = getValue($node['oldValue'], $level);
-                $newValue = getValue($node['newValue'], $level);
-                $acc[] = "{$indent}  - {$node['key']}: {$oldValue}";
-                $acc[] = "{$indent}  + {$node['key']}: {$newValue}";
-                break;
-            case 'parent':
-                $children = renderPretty($node['children'], $level + 1);
-                $acc[] = "{$indent}    {$node['key']}: {\n{$children}\n    {$indent}}";
-                break;
+        if ($node['type'] === 'not changed') {
+            $acc[] = "{$indent}    {$node['key']}: {$value}";
+        } elseif ($node['type'] === 'added') {
+            $acc[] = "{$indent}  + {$node['key']}: {$value}";
+        } elseif ($node['type'] === 'deleted') {
+          $acc[] = "{$indent}  - {$node['key']}: {$value}";
+        } elseif ($node['type'] === 'changed') {
+          $oldValue = getValue($node['oldValue'], $level);
+          $newValue = getValue($node['newValue'], $level);
+          $acc[] = "{$indent}  - {$node['key']}: {$oldValue}";
+          $acc[] = "{$indent}  + {$node['key']}: {$newValue}";
+        } elseif ($node['type'] === 'parent') {
+          $children = renderPretty($node['children'], $level + 1);
+          $acc[] = "{$indent}    {$node['key']}: {\n{$children}\n    {$indent}}";
         }
         return $acc;
     });
-    return implode(PHP_EOL, $changes);;
+    $result = implode(PHP_EOL, $changes);
+    return $result;
 }
 
 function getValue($data, $level)
