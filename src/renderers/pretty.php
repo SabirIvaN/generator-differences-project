@@ -10,7 +10,7 @@ function render($ast)
 
 function renderPretty($ast, $level = 0)
 {
-    $indent = str_repeat('    ', $level);
+    $indent = str_repeat("    ", $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
         if ($node["type"] === "not changed") {
             $value = getValue($node["value"], $level);
