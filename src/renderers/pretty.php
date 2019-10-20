@@ -38,9 +38,13 @@ function renderPretty($ast, $level = 0)
 
 function getValue($data, $level)
 {
+    if (isBoolean($data)) {
+        return $data === true ? 'true' : 'false';
+    }
     if (is_array($data)) {
         return arrayToValue($data, $level);
-    } else {
+    }
+    else {
         return $data;
     }
 }
@@ -55,4 +59,10 @@ function arrayToValue($data, $level)
     });
     $result = implode(PHP_EOL, $values);
     return "{\n$result\n{$indent}}";
+}
+
+
+function isBoolean($data)
+{
+    return gettype($data) === 'boolean';
 }
