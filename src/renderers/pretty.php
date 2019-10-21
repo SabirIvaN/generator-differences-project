@@ -10,7 +10,7 @@ function render($ast)
 
 function renderPretty($ast, $level = 0)
 {
-    $indent = str_repeat('    ', $level);
+    $indent = str_repeat("    ", $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
         if ($node["type"] === "not changed") {
             $value = getValue($node["value"], $level);
@@ -24,8 +24,8 @@ function renderPretty($ast, $level = 0)
         } elseif ($node["type"] === "changed") {
             $oldValue = getValue($node["oldValue"], $level);
             $newValue = getValue($node["newValue"], $level);
-            $acc[] = "{$indent}  - {$node["key"]}: {$oldValue}";
             $acc[] = "{$indent}  + {$node["key"]}: {$newValue}";
+            $acc[] = "{$indent}  - {$node["key"]}: {$oldValue}";
         } elseif ($node["type"] === "parent") {
             $children = renderPretty($node["children"], $level + 1);
             $acc[] = "{$indent}    {$node["key"]}: {\n{$children}\n    {$indent}}";
@@ -38,7 +38,9 @@ function renderPretty($ast, $level = 0)
 
 function getValue($data, $level)
 {
-    if (is_array($data)) {
+    if (isBoolean($data)) {
+        return $data === true ? "true" : "false";
+    } elseif (is_array($data)) {
         return arrayToValue($data, $level);
     } else {
         return $data;
@@ -55,4 +57,10 @@ function arrayToValue($data, $level)
     });
     $result = implode(PHP_EOL, $values);
     return "{\n$result\n{$indent}}";
+}
+
+
+function isBoolean($data)
+{
+    return gettype($data) === "boolean";
 }
