@@ -1,4 +1,5 @@
-language: php
+language:
+  - php
 
 php:
   - '7.3'
@@ -6,4 +7,6 @@ php:
 install:
   - make install
 
-script: make lint
+script:
+  - make lint
+  - make test
