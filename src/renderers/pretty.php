@@ -39,7 +39,7 @@ function renderPretty($ast, $level = 0)
 function getValue($data, $level)
 {
     if (isBoolean($data)) {
-        return $data === true ? 'true' : 'false';
+        return $data === true ? "true" : "false";
     }
     if (is_array($data)) {
         return arrayToValue($data, $level);
@@ -64,5 +64,5 @@ function arrayToValue($data, $level)
 
 function isBoolean($data)
 {
-    return gettype($data) === 'boolean';
+    return gettype($data) === "boolean";
 }
