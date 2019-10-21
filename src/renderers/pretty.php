@@ -40,11 +40,9 @@ function getValue($data, $level)
 {
     if (isBoolean($data)) {
         return $data === true ? "true" : "false";
-    }
-    if (is_array($data)) {
+    } elseif (is_array($data)) {
         return arrayToValue($data, $level);
-    }
-    else {
+    } else {
         return $data;
     }
 }
