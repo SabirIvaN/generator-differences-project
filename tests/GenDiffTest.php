@@ -12,7 +12,10 @@ class GenDiffTests extends TestCase
     {
         $path1 = "tests/fixtures/prettyBefore.json";
         $path2 = "tests/fixtures/prettyAfter.json";
+        $path3 = "tests/fixtures/prettyBefore.json";
+        $path4 = "tests/fixtures/prettyAfter.json";
         $expected = file_get_contents("tests/fixtures/expected/prettyResult");
         $this->assertEquals($expected, run($path1, $path2, "pretty"));
+        $this->assertEquals($expected, run($path3, $path4, "pretty"));
     }
 }
