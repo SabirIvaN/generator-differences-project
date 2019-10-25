@@ -14,6 +14,7 @@ With Composer:
 
 Available data types:
 - json
+- yaml/yml
 
 Render formats:
 - pretty
@@ -21,5 +22,6 @@ Render formats:
 ## Example of usage
 
 - Pretty format:
+    - for *json*
 
 [![asciicast](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS.svg)](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS)
