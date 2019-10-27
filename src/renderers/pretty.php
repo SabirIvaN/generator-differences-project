@@ -56,7 +56,7 @@ function arrayToValue($data, $level)
         return $acc;
     });
     $result = implode(PHP_EOL, $values);
-    return "{\n$result\n{$indent}}";
+    return "{\n  $result\n{$indent}}";
 }
 
 
