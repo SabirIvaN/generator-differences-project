@@ -22,10 +22,18 @@ Render formats:
 ## Example of usage
 
 - Pretty format:
-    - for *json*:
+    - for *json* flat:
 
         [![asciicast](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS.svg)](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS)
 
-    - for *yaml/yml*:
-    
+    - for *yaml/yml* flat:
+
         [![asciicast](https://asciinema.org/a/uKmlMvOBlFSrXa8vjSBeML6sI.svg)](https://asciinema.org/a/uKmlMvOBlFSrXa8vjSBeML6sI)
+
+    - for *json* nested:
+
+        [![asciicast](https://asciinema.org/a/umKWXQFcYrHpcWk7GfjOkruxs.svg)](https://asciinema.org/a/umKWXQFcYrHpcWk7GfjOkruxs)
+
+    - for *yaml/yml* nested:
+
+        [![asciicast](https://asciinema.org/a/V1KN8cqksH36y3Cvk5z1AeLcs.svg)](https://asciinema.org/a/V1KN8cqksH36y3Cvk5z1AeLcs)
