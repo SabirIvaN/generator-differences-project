@@ -26,7 +26,7 @@
         "src/runner.php",
         "src/builder.php",
         "src/parser.php",
-        "src/renderers/pretty.php"
+        "src/formatters/pretty.php"
       ]
     },
     "bin": [
