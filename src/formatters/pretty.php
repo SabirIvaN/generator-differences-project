@@ -1,6 +1,6 @@
 <?php
 
-namespace GenDiff\Renderers\Pretty;
+namespace GenDiff\Formatters\Pretty;
 
 function render($ast)
 {
