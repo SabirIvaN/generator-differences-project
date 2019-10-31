@@ -4,7 +4,8 @@ namespace GenDiff\Runner;
 
 use function GenDiff\Parser\parse;
 use function GenDiff\Builder\build;
-use function GenDiff\Renderers\Pretty\render;
+use function GenDiff\Formatters\Pretty\runRenderPretty;
+use function GenDiff\Formatters\Plain\runRenderPlain;
 
 function run($pathToFile1, $pathToFile2, $format)
 {
@@ -31,7 +32,10 @@ function chooseRender($ast, $format)
 {
     $renders = [
         "pretty" => function ($ast) {
-            return render($ast);
+            return runRenderPretty($ast);
+        },
+        "plain" => function ($ast) {
+            return runRenderPlain($ast);
         }
     ];
     return $renders[$format]($ast);

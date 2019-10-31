@@ -164,12 +164,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "13bfb7f2460a3f34d7e3c054fef646ba67c2e351"
+                "reference": "8b24107fe8363d94ec6569217e0cc72664b8314c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/13bfb7f2460a3f34d7e3c054fef646ba67c2e351",
-                "reference": "13bfb7f2460a3f34d7e3c054fef646ba67c2e351",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8b24107fe8363d94ec6569217e0cc72664b8314c",
+                "reference": "8b24107fe8363d94ec6569217e0cc72664b8314c",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +215,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-10-22T15:44:54+00:00"
+            "time": "2019-10-30T13:23:44+00:00"
         }
     ],
     "packages-dev": [
@@ -643,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5a03e94d9f0e4047097a4870d704b5b4eda4eb0c"
+                "reference": "2bcb7042ce5e88d441225d67a9af53b0d2afed99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5a03e94d9f0e4047097a4870d704b5b4eda4eb0c",
-                "reference": "5a03e94d9f0e4047097a4870d704b5b4eda4eb0c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2bcb7042ce5e88d441225d67a9af53b0d2afed99",
+                "reference": "2bcb7042ce5e88d441225d67a9af53b0d2afed99",
                 "shasum": ""
             },
             "require": {
@@ -698,7 +698,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-10-23T09:02:55+00:00"
+            "time": "2019-10-28T09:21:11+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -895,12 +895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e0dedce2f080da690aa63135667f1d842569207b"
+                "reference": "dfdb50f92c962006dfe1cdcb30ef7166082a6d50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e0dedce2f080da690aa63135667f1d842569207b",
-                "reference": "e0dedce2f080da690aa63135667f1d842569207b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dfdb50f92c962006dfe1cdcb30ef7166082a6d50",
+                "reference": "dfdb50f92c962006dfe1cdcb30ef7166082a6d50",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +970,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-10-24T09:26:13+00:00"
+            "time": "2019-10-28T12:42:51+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1023,12 +1023,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "0b71b4de0c55d2eb2946f30052e94d23e014c2cd"
+                "reference": "c57ba51c28b64ef8a4b14b40bceb2c5ca19e9406"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/0b71b4de0c55d2eb2946f30052e94d23e014c2cd",
-                "reference": "0b71b4de0c55d2eb2946f30052e94d23e014c2cd",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/c57ba51c28b64ef8a4b14b40bceb2c5ca19e9406",
+                "reference": "c57ba51c28b64ef8a4b14b40bceb2c5ca19e9406",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1079,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2019-10-23T09:03:30+00:00"
+            "time": "2019-10-28T09:22:49+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -1593,12 +1593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "f6732bc2918ab24ba80a7d14dd800179e973aed3"
+                "reference": "a37d5431f7682e1f7dbd5b7b8fb25d7a22771052"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f6732bc2918ab24ba80a7d14dd800179e973aed3",
-                "reference": "f6732bc2918ab24ba80a7d14dd800179e973aed3",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a37d5431f7682e1f7dbd5b7b8fb25d7a22771052",
+                "reference": "a37d5431f7682e1f7dbd5b7b8fb25d7a22771052",
                 "shasum": ""
             },
             "require": {
@@ -1636,7 +1636,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-10-24T21:06:58+00:00"
+            "time": "2019-10-30T03:44:48+00:00"
         },
         {
             "name": "theseer/tokenizer",
