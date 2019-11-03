@@ -4,8 +4,8 @@ namespace GenDiff\Runner;
 
 use function GenDiff\Parser\parse;
 use function GenDiff\Builder\build;
-use function GenDiff\Formatters\Pretty\runRenderPretty;
-use function GenDiff\Formatters\Plain\runRenderPlain;
+use function GenDiff\Formatters\Pretty\runPrettyRender;
+use function GenDiff\Formatters\Plain\runPlainRender;
 
 function run($pathToFile1, $pathToFile2, $format)
 {
