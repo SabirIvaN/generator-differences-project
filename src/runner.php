@@ -32,10 +32,10 @@ function chooseRender($ast, $format)
 {
     $renders = [
         "pretty" => function ($ast) {
-            return runRenderPretty($ast);
+            return runPrettyRender($ast);
         },
         "plain" => function ($ast) {
-            return runRenderPlain($ast);
+            return runPlainPlain($ast);
         }
     ];
     return $renders[$format]($ast);
