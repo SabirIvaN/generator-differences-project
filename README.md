@@ -22,6 +22,7 @@ Render formats:
 ## Example of usage
 
 - Pretty format:
+
     - for *json* flat:
 
         [![asciicast](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS.svg)](https://asciinema.org/a/grgfHTXh8ILkxkTNcGj2znPxS)
