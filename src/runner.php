@@ -35,7 +35,7 @@ function chooseRender($ast, $format)
             return runPrettyRender($ast);
         },
         "plain" => function ($ast) {
-            return runPlainPlain($ast);
+            return runPlainRender($ast);
         }
     ];
     return $renders[$format]($ast);

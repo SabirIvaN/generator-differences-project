@@ -26,6 +26,7 @@ class GenDiffTests extends TestCase
       $path4 = "tests/fixtures/nestedAfter.yaml";
       $expected = file_get_contents("tests/fixtures/expected/prettyNestedResult.txt");
       $this->assertEquals($expected, run($path1, $path2, "pretty"));
+      $this->assertEquals($expected, run($path3, $path4, "pretty"));
     }
     public function testPlainFlatResult()
     {
@@ -45,5 +46,6 @@ class GenDiffTests extends TestCase
       $path4 = "tests/fixtures/nestedAfter.yaml";
       $expected = file_get_contents("tests/fixtures/expected/plainNestedResult.txt");
       $this->assertEquals($expected, run($path1, $path2, "plain"));
+      $this->assertEquals($expected, run($path3, $path4, "plain"));
     }
 }
