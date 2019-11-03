@@ -2,7 +2,7 @@
 
 namespace GenDiff\Formatters\Pretty;
 
-function render($ast)
+function runRenderPretty($ast)
 {
     $result = renderPretty($ast);
     return "{\n$result\n}";
