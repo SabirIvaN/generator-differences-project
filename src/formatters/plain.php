@@ -2,7 +2,7 @@
 
 namespace GenDiff\Formatters\Plain;
 
-function runRenderPlain($ast)
+function runPlainRender($ast)
 {
     $result = renderPlain($ast);
     return $result;
