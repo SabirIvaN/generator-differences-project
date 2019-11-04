@@ -39,7 +39,7 @@ function chooseRender($ast, $format)
             return runPlainRender($ast);
         },
         "json" => function ($ast) {
-          return runJsonRender($ast);
+            return runJsonRender($ast);
         }
     ];
     return $renders[$format]($ast);

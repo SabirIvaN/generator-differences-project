@@ -2,12 +2,15 @@
 
 namespace GenDiff\Formatters\Json;
 
-function runJsonRender($ast)
+function runJsonRender ($ast)
 {
-    $result = renderJson($ast);
-    return $result;
+    return renderJson($ast);
 }
-function renderJson($ast)
+
+function renderJson ($ast)
 {
-    return json_encode($ast, JSON_PRETTY_PRINT);
+    $result = json_encode($ast, JSON_PRETTY_PRINT);
+    $result = trim($result, "[]");
+    $result = "{{$result}}";
+    return $result;
 }
