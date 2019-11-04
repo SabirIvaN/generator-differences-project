@@ -6,6 +6,7 @@ use function GenDiff\Parser\parse;
 use function GenDiff\Builder\build;
 use function GenDiff\Formatters\Pretty\runPrettyRender;
 use function GenDiff\Formatters\Plain\runPlainRender;
+use function GenDiff\Formatters\Json\runJsonRender;
 
 function run($pathToFile1, $pathToFile2, $format)
 {
@@ -36,6 +37,9 @@ function chooseRender($ast, $format)
         },
         "plain" => function ($ast) {
             return runPlainRender($ast);
+        },
+        "json" => function ($ast) {
+          return runJsonRender($ast);
         }
     ];
     return $renders[$format]($ast);
