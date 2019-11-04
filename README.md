@@ -56,21 +56,3 @@ Render formats:
     - for *yaml/yml* nested:
 
         [![asciicast](https://asciinema.org/a/KOHQG9FHP1mZNOC9P55u8TX5d.svg)](https://asciinema.org/a/KOHQG9FHP1mZNOC9P55u8TX5d)
-
-- Json format:
-
-    - for *json* flat:
-
-        [![asciicast](https://asciinema.org/a/H39wmNWV5rKzua90A0bsihQU7.svg)](https://asciinema.org/a/H39wmNWV5rKzua90A0bsihQU7)
-
-    - for *yaml/yml* flat:
-
-        [![asciicast](https://asciinema.org/a/G7RsQlGTSXlMb9uLXcHynXtv5.svg)](https://asciinema.org/a/G7RsQlGTSXlMb9uLXcHynXtv5)
-
-    - for *json* nested:
-
-        [![asciicast](https://asciinema.org/a/Tno2Rb1TLyVj7xGHIz6lS2pVJ.svg)](https://asciinema.org/a/Tno2Rb1TLyVj7xGHIz6lS2pVJ)
-
-    - for *yaml/yml* nested:
-
-        [![asciicast](https://asciinema.org/a/9wOxEpx7DC76C7moqchIi8nfO.svg)](https://asciinema.org/a/9wOxEpx7DC76C7moqchIi8nfO)
