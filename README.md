@@ -57,7 +57,7 @@ Render formats:
 
         [![asciicast](https://asciinema.org/a/KOHQG9FHP1mZNOC9P55u8TX5d.svg)](https://asciinema.org/a/KOHQG9FHP1mZNOC9P55u8TX5d)
 
-  - Json format:
+- Json format:
 
     - for *json* flat:
 
