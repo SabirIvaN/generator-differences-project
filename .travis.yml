@@ -11,10 +11,15 @@ script:
   - make lint
   - make test
 
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+addons:
+  code_climate:
+    repo_token:
+      secure: "P129PbQm/aP3PqtYDc01giMtpzf/9P5JJcEAuWE0JLPZ5X4ppIcjf8DHhlZUaN6T27tKAAnr8WoNAx/+RhymBZVKd7sD6c05VX1iXd9iaEGEj81MHTjR4Bd8CeiM
+13BZjTAsjiyPiR4rFNNHTm0iN3P2E0ct5rMJZJ29LblkGoYiay/3mMhiP03WMLIDprGKFznJmvVn3CkrmMokMT3QFjind7hzV1mZBcvZINbwxlk9OQ0G7Ltuaj81RQbiFnAGjsM
+bbgKOb0Fx8dQP+9EpIiQpv8C0RUf3geoOi1ogNTLtdGvChRJclsWpHdtb8K/Gyz/Rg+hQpNZ4j6WmxUj5QtbOPdQghWU/DN1IfhRMgdMyA8YIE0AczbY95fOm5jpMJf+9sIUcdg
+TEzQsOoZ+JgfMTjTvtN62WucOgxdcpszygiRU0Go4qXKi2/6wBga2x62dbKIRvMOq+3PsmflqsW6Di1yoIsGyWVGsDn1QcRyvfiJBXS6WVhVzl1OgqRNc55I6U3svgthIoeyJJs
+VYNs9EB5zmTLHHZyHMnzcamF1thbtalMmDwy+YTOx8bC8TGH8uLc1ruhYi9X00kPtArRSC0hMoJopsoknP1JVuhJpYmvKQ4WlhCffFla6I/bN18GXiyh4PmB4F1wQNhZRZ/wp9W
+UuzrwK5OOabZubVw9Fc="
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - vendor/bin/test-reporter
