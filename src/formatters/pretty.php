@@ -12,23 +12,29 @@ function renderPretty($ast, $level = 0)
 {
     $indent = str_repeat("    ", $level);
     $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
-        if ($node["type"] === "not changed") {
-            $value = getValue($node["value"], $level);
-            $acc[] = "{$indent}    {$node["key"]}: {$value}";
-        } elseif ($node["type"] === "added") {
-            $value = getValue($node["value"], $level);
-            $acc[] = "{$indent}  + {$node["key"]}: {$value}";
-        } elseif ($node["type"] === "deleted") {
-            $value = getValue($node["value"], $level);
-            $acc[] = "{$indent}  - {$node["key"]}: {$value}";
-        } elseif ($node["type"] === "changed") {
-            $oldValue = getValue($node["oldValue"], $level);
-            $newValue = getValue($node["newValue"], $level);
-            $acc[] = "{$indent}  + {$node["key"]}: {$newValue}";
-            $acc[] = "{$indent}  - {$node["key"]}: {$oldValue}";
-        } elseif ($node["type"] === "parent") {
-            $children = renderPretty($node["children"], $level + 1);
-            $acc[] = "{$indent}    {$node["key"]}: {\n{$children}\n    {$indent}}";
+        switch ($node["type"]) {
+            case "not changed":
+                $value = getValue($node["value"], $level);
+                $acc[] = "{$indent}    {$node["key"]}: {$value}";
+                break;
+            case "added":
+                $value = getValue($node["value"], $level);
+                $acc[] = "{$indent}  + {$node["key"]}: {$value}";
+                break;
+            case "deleted":
+                $value = getValue($node["value"], $level);
+                $acc[] = "{$indent}  - {$node["key"]}: {$value}";
+                break;
+            case "changed":
+                $oldValue = getValue($node["oldValue"], $level);
+                $newValue = getValue($node["newValue"], $level);
+                $acc[] = "{$indent}  + {$node["key"]}: {$newValue}";
+                $acc[] = "{$indent}  - {$node["key"]}: {$oldValue}";
+                break;
+            case "parent":
+                $children = renderPretty($node["children"], $level + 1);
+                $acc[] = "{$indent}    {$node["key"]}: {\n{$children}\n    {$indent}}";
+                break;
         }
         return $acc;
     });

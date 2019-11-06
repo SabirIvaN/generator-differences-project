@@ -12,25 +12,4 @@ if (file_exists($autoloadPath1)) {
 	require_once $autoloadPath2;
 }
 
-const DOC = <<<DOC
-Generate diff
-
-Usage:
-	gendiff (-h|--help)
-	gendiff (-v|--version)
-	gendiff [--format <fmt>] <firstFile> <secondFile>
-
-Options:
-	-h --help         Show this screen.
-	-v --version      Show version.
-	--format <fmt>    Report format [default: pretty].
-DOC;
-
-try {
-		$args = \Docopt::handle(DOC, array("version" => "GenDiff 0.5.0"));
-		$diff = run($args["<firstFile>"], $args["<secondFile>"], $args["--format"]);
-		print_r($diff);
-} catch (\Exception $e) {
-		echo $e->getMessage();
-}
-echo "\n";
+run();

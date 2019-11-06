@@ -13,26 +13,42 @@ function build($data1, $data2)
     });
     return $ast;
 }
-function getData($key, $data1, $data2)
+
+function getIndex($key, $data1, $data2)
 {
     if (!array_key_exists($key, $data1)) {
-        $result = getAdded($key, $data1, $data2);
+        $index = 0;
     } elseif (!array_key_exists($key, $data2)) {
-        $result = getDeleted($key, $data1, $data2);
+        $index = 1;
     } elseif (is_array($data1[$key]) && is_array($data2[$key])) {
-        $result = getParent($key, $data1, $data2);
-    } else {
-        $result = getChanges($key, $data1, $data2);
+        $index = 2;
+    } elseif ($data1[$key] === $data2[$key]) {
+        $index = 3;
+    } elseif ($data1[$key] !== $data2[$key]) {
+        $index = 4;
     }
-    return $result;
+    return $index;
 }
 
-function getChanges($key, $data1, $data2)
+function getData($key, $data1, $data2)
 {
-    if ($data1[$key] === $data2[$key]) {
-        $result = getNotChanged($key, $data1, $data2);
-    } elseif ($data1[$key] !== $data2[$key]) {
-        $result = getChanged($key, $data1, $data2);
+    $index = getIndex($key, $data1, $data2);
+    switch ($index) {
+        case 0:
+            $result = getAdded($key, $data1, $data2);
+            break;
+        case 1:
+            $result = getDeleted($key, $data1, $data2);
+            break;
+        case 2:
+            $result = getParent($key, $data1, $data2);
+            break;
+        case 3:
+            $result = getNotChanged($key, $data1, $data2);
+            break;
+        case 4:
+            $result = getChanged($key, $data1, $data2);
+            break;
     }
     return $result;
 }

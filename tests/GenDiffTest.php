@@ -4,7 +4,7 @@ namespace GenDiff\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use function GenDiff\Runner\run;
+use function GenDiff\Generator\generate;
 
 class GenDiffTests extends TestCase
 {
@@ -15,8 +15,8 @@ class GenDiffTests extends TestCase
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
         $expected = file_get_contents("tests/fixtures/expected/prettyFlatResult.txt");
-        $this->assertEquals($expected, run($path1, $path2, "pretty"));
-        $this->assertEquals($expected, run($path3, $path4, "pretty"));
+        $this->assertEquals($expected, generate($path1, $path2, "pretty"));
+        $this->assertEquals($expected, generate($path3, $path4, "pretty"));
     }
     public function testPrettyNestedResult()
     {
@@ -25,8 +25,8 @@ class GenDiffTests extends TestCase
       $path3 = "tests/fixtures/nestedBefore.yaml";
       $path4 = "tests/fixtures/nestedAfter.yaml";
       $expected = file_get_contents("tests/fixtures/expected/prettyNestedResult.txt");
-      $this->assertEquals($expected, run($path1, $path2, "pretty"));
-      $this->assertEquals($expected, run($path3, $path4, "pretty"));
+      $this->assertEquals($expected, generate($path1, $path2, "pretty"));
+      $this->assertEquals($expected, generate($path3, $path4, "pretty"));
     }
     public function testPlainFlatResult()
     {
@@ -35,8 +35,8 @@ class GenDiffTests extends TestCase
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
         $expected = file_get_contents("tests/fixtures/expected/plainFlatResult.txt");
-        $this->assertEquals($expected, run($path1, $path2, "plain"));
-        $this->assertEquals($expected, run($path3, $path4, "plain"));
+        $this->assertEquals($expected, generate($path1, $path2, "plain"));
+        $this->assertEquals($expected, generate($path3, $path4, "plain"));
     }
     public function testPlainNestedResult()
     {
@@ -45,8 +45,8 @@ class GenDiffTests extends TestCase
       $path3 = "tests/fixtures/nestedBefore.yaml";
       $path4 = "tests/fixtures/nestedAfter.yaml";
       $expected = file_get_contents("tests/fixtures/expected/plainNestedResult.txt");
-      $this->assertEquals($expected, run($path1, $path2, "plain"));
-      $this->assertEquals($expected, run($path3, $path4, "plain"));
+      $this->assertEquals($expected, generate($path1, $path2, "plain"));
+      $this->assertEquals($expected, generate($path3, $path4, "plain"));
     }
     public function testJsonFlatResult()
     {
@@ -55,8 +55,8 @@ class GenDiffTests extends TestCase
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
         $expected = file_get_contents("tests/fixtures/expected/jsonFlatResult.txt");
-        $this->assertEquals($expected, run($path1, $path2, "json"));
-        $this->assertEquals($expected, run($path3, $path4, "json"));
+        $this->assertEquals($expected, generate($path1, $path2, "json"));
+        $this->assertEquals($expected, generate($path3, $path4, "json"));
     }
     public function testJsonNestedResult()
     {
@@ -65,7 +65,7 @@ class GenDiffTests extends TestCase
       $path3 = "tests/fixtures/nestedBefore.yaml";
       $path4 = "tests/fixtures/nestedAfter.yaml";
       $expected = file_get_contents("tests/fixtures/expected/jsonNestedResult.txt");
-      $this->assertEquals($expected, run($path1, $path2, "json"));
-      $this->assertEquals($expected, run($path3, $path4, "json"));
+      $this->assertEquals($expected, generate($path1, $path2, "json"));
+      $this->assertEquals($expected, generate($path3, $path4, "json"));
     }
 }
