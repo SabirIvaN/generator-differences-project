@@ -1,8 +1,6 @@
 # Generator Differences  
 
-[![Latest Stable Version](https://poser.pugx.org/sabirivan/gendiff/v/stable)](https://packagist.org/packages/sabirivan/gendiff)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fa4710ee77154016f472/maintainability)](https://codeclimate.com/github/SabirIvaN/php-project-lvl2/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/fa4710ee77154016f472/test_coverage)](https://codeclimate.com/github/SabirIvaN/php-project-lvl2/test_coverage)
 [![Build Status](https://travis-ci.org/SabirIvaN/php-project-lvl2.svg?branch=master)](https://travis-ci.org/SabirIvaN/php-project-lvl2)
 
 PHP-package to find difference between two files.
