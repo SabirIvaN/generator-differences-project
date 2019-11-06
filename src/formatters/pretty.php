@@ -10,8 +10,15 @@ function runPrettyRender($ast)
 
 function renderPretty($ast, $level = 0)
 {
+    $changes = getRenderPretty($ast, $level);
+    $result = implode(PHP_EOL, $changes);
+    return $result;
+}
+
+function getRenderPretty($ast, $level = 0)
+{
     $indent = str_repeat("    ", $level);
-    $changes = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
+    $array = array_reduce($ast, function ($acc, $node) use ($indent, $level) {
         switch ($node["type"]) {
             case "not changed":
                 $value = getValue($node["value"], $level);
@@ -38,8 +45,7 @@ function renderPretty($ast, $level = 0)
         }
         return $acc;
     });
-    $result = implode(PHP_EOL, $changes);
-    return $result;
+    return $array;
 }
 
 function getValue($data, $level)
