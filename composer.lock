@@ -895,12 +895,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4501eec99dc584421c9a27a2cfa9340e78c4bb79"
+                "reference": "a98ff6bb0060f2ae1717f8c556db3ab808558119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4501eec99dc584421c9a27a2cfa9340e78c4bb79",
-                "reference": "4501eec99dc584421c9a27a2cfa9340e78c4bb79",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a98ff6bb0060f2ae1717f8c556db3ab808558119",
+                "reference": "a98ff6bb0060f2ae1717f8c556db3ab808558119",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +970,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-06T13:14:29+00:00"
+            "time": "2019-11-08T23:58:54+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1593,12 +1593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "6a4abf447866731eed5d4a944686992366840cc3"
+                "reference": "200eae562f8c449107d2378a7f886586e77c6c8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6a4abf447866731eed5d4a944686992366840cc3",
-                "reference": "6a4abf447866731eed5d4a944686992366840cc3",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/200eae562f8c449107d2378a7f886586e77c6c8e",
+                "reference": "200eae562f8c449107d2378a7f886586e77c6c8e",
                 "shasum": ""
             },
             "require": {
@@ -1636,7 +1636,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-11-03T21:26:48+00:00"
+            "time": "2019-11-07T21:12:56+00:00"
         },
         {
             "name": "theseer/tokenizer",

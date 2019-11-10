@@ -15,7 +15,7 @@ function parse($data, $dataType)
             $result = Yaml::parse($data);
             break;
         default:
-            throw new \Exception("Unknown data type");
+            throw new \Exception("Unknown data type .{$dataType}");
     }
     return $result;
 }

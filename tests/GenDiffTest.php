@@ -8,64 +8,55 @@ use function GenDiff\Generator\generate;
 
 class GenDiffTests extends TestCase
 {
-    public function testPrettyFlatResult()
+    public function testPrettyResult()
     {
         $path1 = "tests/fixtures/flatBefore.json";
         $path2 = "tests/fixtures/flatAfter.json";
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
-        $expected = file_get_contents("tests/fixtures/expected/prettyFlatResult.txt");
-        $this->assertEquals($expected, generate($path1, $path2, "pretty"));
-        $this->assertEquals($expected, generate($path3, $path4, "pretty"));
+        $path5 = "tests/fixtures/nestedBefore.json";
+        $path6 = "tests/fixtures/nestedAfter.json";
+        $path7 = "tests/fixtures/nestedBefore.yaml";
+        $path8 = "tests/fixtures/nestedAfter.yaml";
+        $expected1 = file_get_contents("tests/fixtures/expected/prettyFlatResult.txt");
+        $expected2 = file_get_contents("tests/fixtures/expected/prettyNestedResult.txt");
+        $this->assertEquals($expected1, generate($path1, $path2, "pretty"));
+        $this->assertEquals($expected1, generate($path3, $path4, "pretty"));
+        $this->assertEquals($expected2, generate($path5, $path6, "pretty"));
+        $this->assertEquals($expected2, generate($path7, $path8, "pretty"));
     }
-    public function testPrettyNestedResult()
-    {
-      $path1 = "tests/fixtures/nestedBefore.json";
-      $path2 = "tests/fixtures/nestedAfter.json";
-      $path3 = "tests/fixtures/nestedBefore.yaml";
-      $path4 = "tests/fixtures/nestedAfter.yaml";
-      $expected = file_get_contents("tests/fixtures/expected/prettyNestedResult.txt");
-      $this->assertEquals($expected, generate($path1, $path2, "pretty"));
-      $this->assertEquals($expected, generate($path3, $path4, "pretty"));
-    }
-    public function testPlainFlatResult()
+    public function testPlainResult()
     {
         $path1 = "tests/fixtures/flatBefore.json";
         $path2 = "tests/fixtures/flatAfter.json";
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
-        $expected = file_get_contents("tests/fixtures/expected/plainFlatResult.txt");
-        $this->assertEquals($expected, generate($path1, $path2, "plain"));
-        $this->assertEquals($expected, generate($path3, $path4, "plain"));
+        $path5 = "tests/fixtures/nestedBefore.json";
+        $path6 = "tests/fixtures/nestedAfter.json";
+        $path7 = "tests/fixtures/nestedBefore.yaml";
+        $path8 = "tests/fixtures/nestedAfter.yaml";
+        $expected1 = file_get_contents("tests/fixtures/expected/plainFlatResult.txt");
+        $expected2 = file_get_contents("tests/fixtures/expected/plainNestedResult.txt");
+        $this->assertEquals($expected1, generate($path1, $path2, "plain"));
+        $this->assertEquals($expected1, generate($path3, $path4, "plain"));
+        $this->assertEquals($expected2, generate($path5, $path6, "plain"));
+        $this->assertEquals($expected2, generate($path7, $path8, "plain"));
     }
-    public function testPlainNestedResult()
-    {
-      $path1 = "tests/fixtures/nestedBefore.json";
-      $path2 = "tests/fixtures/nestedAfter.json";
-      $path3 = "tests/fixtures/nestedBefore.yaml";
-      $path4 = "tests/fixtures/nestedAfter.yaml";
-      $expected = file_get_contents("tests/fixtures/expected/plainNestedResult.txt");
-      $this->assertEquals($expected, generate($path1, $path2, "plain"));
-      $this->assertEquals($expected, generate($path3, $path4, "plain"));
-    }
-    public function testJsonFlatResult()
+    public function testJsonResult()
     {
         $path1 = "tests/fixtures/flatBefore.json";
         $path2 = "tests/fixtures/flatAfter.json";
         $path3 = "tests/fixtures/flatBefore.yaml";
         $path4 = "tests/fixtures/flatAfter.yaml";
-        $expected = file_get_contents("tests/fixtures/expected/jsonFlatResult.txt");
-        $this->assertEquals($expected, generate($path1, $path2, "json"));
-        $this->assertEquals($expected, generate($path3, $path4, "json"));
-    }
-    public function testJsonNestedResult()
-    {
-      $path1 = "tests/fixtures/nestedBefore.json";
-      $path2 = "tests/fixtures/nestedAfter.json";
-      $path3 = "tests/fixtures/nestedBefore.yaml";
-      $path4 = "tests/fixtures/nestedAfter.yaml";
-      $expected = file_get_contents("tests/fixtures/expected/jsonNestedResult.txt");
-      $this->assertEquals($expected, generate($path1, $path2, "json"));
-      $this->assertEquals($expected, generate($path3, $path4, "json"));
+        $path5 = "tests/fixtures/nestedBefore.json";
+        $path6 = "tests/fixtures/nestedAfter.json";
+        $path7 = "tests/fixtures/nestedBefore.yaml";
+        $path8 = "tests/fixtures/nestedAfter.yaml";
+        $expected1 = file_get_contents("tests/fixtures/expected/jsonFlatResult.txt");
+        $expected2 = file_get_contents("tests/fixtures/expected/jsonNestedResult.txt");
+        $this->assertEquals($expected1, generate($path1, $path2, "json"));
+        $this->assertEquals($expected1, generate($path3, $path4, "json"));
+        $this->assertEquals($expected2, generate($path5, $path6, "json"));
+        $this->assertEquals($expected2, generate($path7, $path8, "json"));
     }
 }

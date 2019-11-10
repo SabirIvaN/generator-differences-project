@@ -24,7 +24,7 @@
     "autoload": {
       "files": [
         "src/runner.php",
-        "src/generator.php",
+        "src/renderer.php",
         "src/builder.php",
         "src/parser.php",
         "src/formatters/pretty.php",

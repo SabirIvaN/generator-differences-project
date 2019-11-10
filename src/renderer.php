@@ -1,6 +1,6 @@
 <?php
 
-namespace GenDiff\Generator;
+namespace GenDiff\Renderer;
 
 use function GenDiff\Parser\parse;
 use function GenDiff\Builder\build;
@@ -8,7 +8,7 @@ use function GenDiff\Formatters\Pretty\runPrettyRender;
 use function GenDiff\Formatters\Plain\runPlainRender;
 use function GenDiff\Formatters\Json\runJsonRender;
 
-function generate($pathToFile1, $pathToFile2, $format)
+function render($pathToFile1, $pathToFile2, $format)
 {
     checkPath($pathToFile1);
     checkPath($pathToFile2);
