@@ -8,7 +8,7 @@ PHP-package to find difference between two files.
 ## Installation
 
 With Composer:
-`composer global require sabirivan/gendiff:dev-master`
+`composer global require sabirivan/gendiff:^1.2`
 
 ## Input and output data
 

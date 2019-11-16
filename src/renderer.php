@@ -15,8 +15,8 @@ function render($pathToFile1, $pathToFile2, $format)
     $data1 = getData($pathToFile1);
     $data2 = getData($pathToFile2);
     $ast = build($data1, $data2);
-    $renderedAst = chooseRender($ast, $format);
-    return $renderedAst;
+    $renderedResult = chooseRender($ast, $format);
+    return $renderedResult;
 }
 
 function getData($pathToFile)
