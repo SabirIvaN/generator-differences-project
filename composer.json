@@ -23,13 +23,13 @@
     },
     "autoload": {
       "files": [
-        "src/runner.php",
-        "src/renderer.php",
-        "src/builder.php",
-        "src/parser.php",
-        "src/formatters/pretty.php",
-        "src/formatters/plain.php",
-        "src/formatters/json.php"
+        "src/Runner.php",
+        "src/Renderer.php",
+        "src/Builder.php",
+        "src/Parser.php",
+        "src/Formatters/Pretty.php",
+        "src/Formatters/Plain.php",
+        "src/Formatters/Json.php"
       ]
     },
     "bin": [
