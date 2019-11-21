@@ -21,7 +21,7 @@ function run()
     DOC;
 
     try {
-        $args = \Docopt::handle($doc, array("version" => "GenDiff 1.5"));
+        $args = \Docopt::handle($doc, array("version" => "GenDiff 1.6"));
         $diff = render($args["<firstFile>"], $args["<secondFile>"], $args["--format"]);
         print_r($diff);
     } catch (\Exception $e) {
